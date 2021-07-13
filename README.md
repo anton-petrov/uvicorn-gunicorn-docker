@@ -1,27 +1,20 @@
-[![Test](https://github.com/tiangolo/uvicorn-gunicorn-docker/workflows/Test/badge.svg)](https://github.com/tiangolo/uvicorn-gunicorn-docker/actions?query=workflow%3ATest) [![Deploy](https://github.com/tiangolo/uvicorn-gunicorn-docker/workflows/Deploy/badge.svg)](https://github.com/tiangolo/uvicorn-gunicorn-docker/actions?query=workflow%3ADeploy)
+[![Test](https://github.com/antonapetrov/uvicorn-gunicorn-docker/workflows/Test/badge.svg)](https://github.com/antonapetrov/uvicorn-gunicorn-docker/actions?query=workflow%3ATest) [![Deploy](https://github.com/antonapetrov/uvicorn-gunicorn-docker/workflows/Deploy/badge.svg)](https://github.com/antonapetrov/uvicorn-gunicorn-docker/actions?query=workflow%3ADeploy)
 
 ## Supported tags and respective `Dockerfile` links
 
-* [`python3.9` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9.dockerfile)
-* [`python3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8.dockerfile)
-* [`python3.7` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.7.dockerfile)
-* [`python3.6` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.6.dockerfile)
-* [`python3.9-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-slim.dockerfile)
-* [`python3.8-slim` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8-slim.dockerfile)
-* [`python3.9-alpine3.13` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8-alpine3.10.dockerfile)
-* [`python3.8-alpine3.10` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.8-alpine3.10.dockerfile)
-* [`python3.7-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.7-alpine3.8.dockerfile)
-* [`python3.6-alpine3.8` _(Dockerfile)_](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/python3.6-alpine3.8.dockerfile)
+* [`python3.9` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9.dockerfile)
+* [`python3.9-slim` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-slim.dockerfile)
+* [`python3.9-alpine3.13` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-alpine3.13.dockerfile)
 
-**Note**: Note: There are [tags for each build date](https://hub.docker.com/r/tiangolo/uvicorn-gunicorn/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `tiangolo/uvicorn-gunicorn:python3.7-2019-10-15`.
+**Note**: Note: There are [tags for each build date](https://hub.docker.com/r/antonapetrov/uvicorn-gunicorn/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `antonapetrov/uvicorn-gunicorn:python3.9`.
 
 # uvicorn-gunicorn
 
-[**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance web applications in **[Python](https://www.python.org/) 3.6 and above** with performance auto-tuning. Optionally in a slim version or based on Alpine Linux.
+[**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance web applications in **[Python](https://www.python.org/) 3.9 and above** with performance auto-tuning. Optionally in a slim version or based on Alpine Linux.
 
-**GitHub repo**: [https://github.com/tiangolo/uvicorn-gunicorn-docker](https://github.com/tiangolo/uvicorn-gunicorn-docker)
+**GitHub repo**: [https://github.com/antonapetrov/uvicorn-gunicorn-docker](https://github.com/antonapetrov/uvicorn-gunicorn-docker)
 
-**Docker Hub image**: [https://hub.docker.com/r/tiangolo/uvicorn-gunicorn/](https://hub.docker.com/r/tiangolo/uvicorn-gunicorn/)
+**Docker Hub image**: [https://hub.docker.com/r/antonapetrov/uvicorn-gunicorn/](https://hub.docker.com/r/antonapetrov/uvicorn-gunicorn/)
 
 ## Description
 
@@ -45,7 +38,7 @@ You can use **Gunicorn** to manage Uvicorn and run multiple of these concurrent 
 
 That way, you get the best of concurrency and parallelism.
 
-### `tiangolo/uvicorn-gunicorn`
+### `antonapetrov/uvicorn-gunicorn`
 
 This image will set a sensible configuration based on the server it is running on (the amount of CPU cores available) without making sacrifices.
 
@@ -57,25 +50,25 @@ There is also a slim version and another one based on Alpine Linux. If you want 
 
 This image was created to be the base image for:
 
-* [**tiangolo/uvicorn-gunicorn-starlette**](https://github.com/tiangolo/uvicorn-gunicorn-starlette-docker)
-* [**tiangolo/uvicorn-gunicorn-fastapi**](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker)
+* [**antonapetrov/uvicorn-gunicorn-starlette**](https://github.com/antonapetrov/uvicorn-gunicorn-starlette-docker)
+* [**antonapetrov/uvicorn-gunicorn-fastapi**](https://github.com/antonapetrov/uvicorn-gunicorn-fastapi-docker)
 
 But could be used as the base image to run any Python web application that uses the ASGI specification.
 
-If you are creating a new [**Starlette**](https://www.starlette.io/) web application you should use [**tiangolo/uvicorn-gunicorn-starlette**](https://github.com/tiangolo/uvicorn-gunicorn-starlette-docker) instead.
+If you are creating a new [**Starlette**](https://www.starlette.io/) web application you should use [**antonapetrov/uvicorn-gunicorn-starlette**](https://github.com/antonapetrov/uvicorn-gunicorn-starlette-docker) instead.
 
-If you are creating a new [**FastAPI**](https://fastapi.tiangolo.com/) web application you should use [**tiangolo/uvicorn-gunicorn-fastapi**](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker) instead.
+If you are creating a new [**FastAPI**](https://fastapi.antonapetrov.com/) web application you should use [**antonapetrov/uvicorn-gunicorn-fastapi**](https://github.com/antonapetrov/uvicorn-gunicorn-fastapi-docker) instead.
 
 **Note**: FastAPI is based on Starlette and adds several features on top of it. Useful for APIs and other cases: data validation, data conversion, documentation with OpenAPI, dependency injection, security/authentication and others.
 
-**Note**: Unless you are doing something more technically advanced, you probably should be using [**Starlette**](https://www.starlette.io/) with [**tiangolo/uvicorn-gunicorn-starlette**](https://github.com/tiangolo/uvicorn-gunicorn-starlette-docker) or [**FastAPI**](https://fastapi.tiangolo.com/) with [**tiangolo/uvicorn-gunicorn-fastapi**](https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker).
+**Note**: Unless you are doing something more technically advanced, you probably should be using [**Starlette**](https://www.starlette.io/) with [**antonapetrov/uvicorn-gunicorn-starlette**](https://github.com/antonapetrov/uvicorn-gunicorn-starlette-docker) or [**FastAPI**](https://fastapi.antonapetrov.com/) with [**antonapetrov/uvicorn-gunicorn-fastapi**](https://github.com/antonapetrov/uvicorn-gunicorn-fastapi-docker).
 
 ## How to use
 
 * You don't need to clone the GitHub repo. You can use this image as a base image for other images, using this in your `Dockerfile`:
 
 ```Dockerfile
-FROM tiangolo/uvicorn-gunicorn:python3.7
+FROM antonapetrov/uvicorn-gunicorn:python3.7
 
 COPY ./app /app
 ```
@@ -119,7 +112,7 @@ Let's say you have a project managed with [Poetry](https://python-poetry.org/), 
 Then you could have a `Dockerfile` like:
 
 ```Dockerfile
-FROM tiangolo/uvicorn-gunicorn:python3.7
+FROM antonapetrov/uvicorn-gunicorn:python3.7
 
 # Install Poetry
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | POETRY_HOME=/opt/poetry python && \
@@ -225,7 +218,7 @@ You can set it like:
 docker run -d -p 80:80 -e GUNICORN_CONF="/app/custom_gunicorn_conf.py" myimage
 ```
 
-You can use the [config file](https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/docker-images/gunicorn_conf.py) from this image as a starting point for yours.
+You can use the [config file](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/gunicorn_conf.py) from this image as a starting point for yours.
 
 #### `WORKERS_PER_CORE`
 
@@ -463,7 +456,7 @@ For example, if you have a custom TLS/SSL certificate that you want to use, you 
 docker run -d -p 80:8080 -e GUNICORN_CMD_ARGS="--keyfile=/secrets/key.pem --certfile=/secrets/cert.pem" -e PORT=443 myimage
 ```
 
-**Note**: instead of handling TLS/SSL yourself and configuring it in the container, it's recommended to use a "TLS Termination Proxy" like [Traefik](https://docs.traefik.io/). You can read more about it in the [FastAPI documentation about HTTPS](https://fastapi.tiangolo.com/deployment/#https).
+**Note**: instead of handling TLS/SSL yourself and configuring it in the container, it's recommended to use a "TLS Termination Proxy" like [Traefik](https://docs.traefik.io/). You can read more about it in the [FastAPI documentation about HTTPS](https://fastapi.antonapetrov.com/deployment/#https).
 
 #### `PRE_START_PATH`
 
@@ -576,15 +569,15 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
-* 🔥 Remove unused Travis and old GitHub Actions configs. PR [#56](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/56) by [@tiangolo](https://github.com/tiangolo).
-* ✏️ Fix typo (type annotation) in tests. PR [#55](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/55) by [@tiangolo](https://github.com/tiangolo).
-* 👷 Add GitHub Action latest-changes, update issue-manager, add funding. PR [#53](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/53) by [@tiangolo](https://github.com/tiangolo).
-* ⬆️ Install uvicorn[standard] to include uvloop and Gunicorn support. PR [#54](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/54) by [@tiangolo](https://github.com/tiangolo).
+* 🔥 Remove unused Travis and old GitHub Actions configs. PR [#56](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/56) by [@antonapetrov](https://github.com/antonapetrov).
+* ✏️ Fix typo (type annotation) in tests. PR [#55](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/55) by [@antonapetrov](https://github.com/antonapetrov).
+* 👷 Add GitHub Action latest-changes, update issue-manager, add funding. PR [#53](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/53) by [@antonapetrov](https://github.com/antonapetrov).
+* ⬆️ Install uvicorn[standard] to include uvloop and Gunicorn support. PR [#54](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/54) by [@antonapetrov](https://github.com/antonapetrov).
 ### 0.6.0
 
-* Add docs about installing and pinning dependencies. PR [#41](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/41).
-* Add `slim` version. PR [#40](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/40).
-* Remove leftover unneeded config for tests. PR [#39](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/39).
+* Add docs about installing and pinning dependencies. PR [#41](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/41).
+* Add `slim` version. PR [#40](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/40).
+* Remove leftover unneeded config for tests. PR [#39](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/39).
 * Add extra configs, tests, and docs for:
     * `WORKER_CLASS`
     * `TIMEOUT`
@@ -594,38 +587,38 @@ All the image tags, configurations, environment variables and application option
     * `ERROR_LOG`
     * `GUNICORN_CMD_ARGS`
     * `MAX_WORKERS`
-    * PR [#38](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/38)
-* Set up CI using GitHub actions, they provide more free instances, so builds finish faster (4 min vs 9 min). PR [#37](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/37).
-* Add support for Python 3.8. PR [#36](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/36).
-* Refactor tests to remove custom testing Dockerfiles, generate them during tests. PR [#35](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/35).
-* Refactor and simplify build process to reduce code duplication. PR [#34](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/34).
-* Disable `pip` cache during installation with `--no-cache-dir`. PR [#13](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/13) by [@pmav99](https://github.com/pmav99).
-* Migrate local development from Pipenv to Poetry. PR [#31](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/31).
-* Add tests and docs for custom `PRE_START_PATH` env var. PR [#30](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/30).
-* Add support for custom `PRE_START_PATH` env var. PR [#12](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/12) by [@mgfinch](https://github.com/mgfinch).
+    * PR [#38](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/38)
+* Set up CI using GitHub actions, they provide more free instances, so builds finish faster (4 min vs 9 min). PR [#37](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/37).
+* Add support for Python 3.8. PR [#36](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/36).
+* Refactor tests to remove custom testing Dockerfiles, generate them during tests. PR [#35](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/35).
+* Refactor and simplify build process to reduce code duplication. PR [#34](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/34).
+* Disable `pip` cache during installation with `--no-cache-dir`. PR [#13](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/13) by [@pmav99](https://github.com/pmav99).
+* Migrate local development from Pipenv to Poetry. PR [#31](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/31).
+* Add tests and docs for custom `PRE_START_PATH` env var. PR [#30](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/30).
+* Add support for custom `PRE_START_PATH` env var. PR [#12](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/12) by [@mgfinch](https://github.com/mgfinch).
 
 ### 0.5.0
 
-* Refactor tests to use env vars and add image tags for each build date, like `tiangolo/uvicorn-gunicorn:python3.7-2019-10-15`. PR [#15](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/15).
-* Update Gunicorn worker heartbeat directory to `/dev/shm` to improve performance. PR [#9](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/9) by [@wshayes](https://github.com/wshayes).
-* Upgrade Travis. PR [#7](https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/7).
+* Refactor tests to use env vars and add image tags for each build date, like `antonapetrov/uvicorn-gunicorn:python3.7-2019-10-15`. PR [#15](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/15).
+* Update Gunicorn worker heartbeat directory to `/dev/shm` to improve performance. PR [#9](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/9) by [@wshayes](https://github.com/wshayes).
+* Upgrade Travis. PR [#7](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/7).
 
 ### 0.4.0
 
-* Add support for live auto-reload with an additional custom script `/start-reload.sh`, check the [updated documentation](https://github.com/tiangolo/uvicorn-gunicorn-docker#development-live-reload). PR <a href="https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/6" target="_blank">#6</a>.
+* Add support for live auto-reload with an additional custom script `/start-reload.sh`, check the [updated documentation](https://github.com/antonapetrov/uvicorn-gunicorn-docker#development-live-reload). PR <a href="https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/6" target="_blank">#6</a>.
 
 ### 0.3.0
 
 * Set `WORKERS_PER_CORE` by default to `1`, as it shows to have the best performance on benchmarks.
-* Make the default web concurrency, when `WEB_CONCURRENCY` is not set, to a minimum of 2 workers. This is to avoid bad performance and blocking applications (server application) on small machines (server machine/cloud/etc). This can be overridden using `WEB_CONCURRENCY`. This applies for example in the case where `WORKERS_PER_CORE` is set to `1` (the default) and the server has only 1 CPU core. PR <a href="https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/5" target="_blank">#5</a>.
+* Make the default web concurrency, when `WEB_CONCURRENCY` is not set, to a minimum of 2 workers. This is to avoid bad performance and blocking applications (server application) on small machines (server machine/cloud/etc). This can be overridden using `WEB_CONCURRENCY`. This applies for example in the case where `WORKERS_PER_CORE` is set to `1` (the default) and the server has only 1 CPU core. PR <a href="https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/5" target="_blank">#5</a>.
 
 ### 0.2.0
 
-* Make `/start.sh` run independently, reading and generating used default environment variables. And remove `/entrypoint.sh` as it doesn't modify anything in the system, only reads environment variables. PR <a href="https://github.com/tiangolo/uvicorn-gunicorn-docker/pull/4" target="_blank">#4</a>.
+* Make `/start.sh` run independently, reading and generating used default environment variables. And remove `/entrypoint.sh` as it doesn't modify anything in the system, only reads environment variables. PR <a href="https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/4" target="_blank">#4</a>.
 
 ### 0.1.2
 
-* Whenever this image is built (and each of its tags/versions), trigger a build for the children images (<a href="https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker" target="_blank">FastAPI</a> and <a href="https://github.com/tiangolo/uvicorn-gunicorn-starlette-docker" target="_blank">Starlette</a>).
+* Whenever this image is built (and each of its tags/versions), trigger a build for the children images (<a href="https://github.com/antonapetrov/uvicorn-gunicorn-fastapi-docker" target="_blank">FastAPI</a> and <a href="https://github.com/antonapetrov/uvicorn-gunicorn-starlette-docker" target="_blank">Starlette</a>).
 
 ### 0.1.0
 
