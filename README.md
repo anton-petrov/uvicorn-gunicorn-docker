@@ -567,61 +567,12 @@ All the image tags, configurations, environment variables and application option
 
 ### Latest Changes
 
-* 🔥 Remove unused Travis and old GitHub Actions configs. PR [#56](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/56) by [@antonapetrov](https://github.com/antonapetrov).
-* ✏️ Fix typo (type annotation) in tests. PR [#55](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/55) by [@antonapetrov](https://github.com/antonapetrov).
-* 👷 Add GitHub Action latest-changes, update issue-manager, add funding. PR [#53](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/53) by [@antonapetrov](https://github.com/antonapetrov).
-* ⬆️ Install uvicorn[standard] to include uvloop and Gunicorn support. PR [#54](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/54) by [@antonapetrov](https://github.com/antonapetrov).
-### 0.6.0
+### 0.7.0
 
-* Add docs about installing and pinning dependencies. PR [#41](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/41).
-* Add `slim` version. PR [#40](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/40).
-* Remove leftover unneeded config for tests. PR [#39](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/39).
-* Add extra configs, tests, and docs for:
-    * `WORKER_CLASS`
-    * `TIMEOUT`
-    * `KEEP_ALIVE`
-    * `GRACEFUL_TIMEOUT`
-    * `ACCESS_LOG`
-    * `ERROR_LOG`
-    * `GUNICORN_CMD_ARGS`
-    * `MAX_WORKERS`
-    * PR [#38](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/38)
-* Set up CI using GitHub actions, they provide more free instances, so builds finish faster (4 min vs 9 min). PR [#37](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/37).
-* Add support for Python 3.8. PR [#36](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/36).
-* Refactor tests to remove custom testing Dockerfiles, generate them during tests. PR [#35](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/35).
-* Refactor and simplify build process to reduce code duplication. PR [#34](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/34).
-* Disable `pip` cache during installation with `--no-cache-dir`. PR [#13](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/13) by [@pmav99](https://github.com/pmav99).
-* Migrate local development from Pipenv to Poetry. PR [#31](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/31).
-* Add tests and docs for custom `PRE_START_PATH` env var. PR [#30](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/30).
-* Add support for custom `PRE_START_PATH` env var. PR [#12](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/12) by [@mgfinch](https://github.com/mgfinch).
+* Add Python 3.9 (and Alpine 3.13)
 
-### 0.5.0
-
-* Refactor tests to use env vars and add image tags for each build date, like `antonapetrov/uvicorn-gunicorn:python3.7-2019-10-15`. PR [#15](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/15).
-* Update Gunicorn worker heartbeat directory to `/dev/shm` to improve performance. PR [#9](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/9) by [@wshayes](https://github.com/wshayes).
-* Upgrade Travis. PR [#7](https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/7).
-
-### 0.4.0
-
-* Add support for live auto-reload with an additional custom script `/start-reload.sh`, check the [updated documentation](https://github.com/antonapetrov/uvicorn-gunicorn-docker#development-live-reload). PR <a href="https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/6" target="_blank">#6</a>.
-
-### 0.3.0
-
-* Set `WORKERS_PER_CORE` by default to `1`, as it shows to have the best performance on benchmarks.
-* Make the default web concurrency, when `WEB_CONCURRENCY` is not set, to a minimum of 2 workers. This is to avoid bad performance and blocking applications (server application) on small machines (server machine/cloud/etc). This can be overridden using `WEB_CONCURRENCY`. This applies for example in the case where `WORKERS_PER_CORE` is set to `1` (the default) and the server has only 1 CPU core. PR <a href="https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/5" target="_blank">#5</a>.
-
-### 0.2.0
-
-* Make `/start.sh` run independently, reading and generating used default environment variables. And remove `/entrypoint.sh` as it doesn't modify anything in the system, only reads environment variables. PR <a href="https://github.com/antonapetrov/uvicorn-gunicorn-docker/pull/4" target="_blank">#4</a>.
-
-### 0.1.2
-
-* Whenever this image is built (and each of its tags/versions), trigger a build for the children images (<a href="https://github.com/antonapetrov/uvicorn-gunicorn-fastapi-docker" target="_blank">FastAPI</a> and <a href="https://github.com/antonapetrov/uvicorn-gunicorn-starlette-docker" target="_blank">Starlette</a>).
-
-### 0.1.0
-
-* Add support for `/app/prestart.sh`.
 
 ## License
 
-This project is licensed under the terms of the MIT license.
+This project is forked from https://github.com/tiangolo/uvicorn-gunicorn-docker and licensed under the terms of the MIT license.
+Author of original project is Sebastián Ramírez https://github.com/tiangolo
