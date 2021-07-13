@@ -575,4 +575,5 @@ All the image tags, configurations, environment variables and application option
 ## License
 
 This project is forked from https://github.com/tiangolo/uvicorn-gunicorn-docker and licensed under the terms of the MIT license.
-Author of original project is Sebastián Ramírez https://github.com/tiangolo
+
+Author of the original project is Sebastián Ramírez https://github.com/tiangolo
