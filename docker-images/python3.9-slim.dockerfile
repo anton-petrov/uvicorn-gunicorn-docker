@@ -1,6 +1,6 @@
 FROM python:3.9-slim
 
-LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
+LABEL maintainer="Anton Petrov <anton.a.petrov@gmail.com>"
 
 RUN pip install --no-cache-dir "uvicorn[standard]" gunicorn
 
