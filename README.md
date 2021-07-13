@@ -1,5 +1,3 @@
-[![Test](https://github.com/antonapetrov/uvicorn-gunicorn-docker/workflows/Test/badge.svg)](https://github.com/antonapetrov/uvicorn-gunicorn-docker/actions?query=workflow%3ATest) [![Deploy](https://github.com/antonapetrov/uvicorn-gunicorn-docker/workflows/Deploy/badge.svg)](https://github.com/antonapetrov/uvicorn-gunicorn-docker/actions?query=workflow%3ADeploy)
-
 ## Supported tags and respective `Dockerfile` links
 
 * [`python3.9` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9.dockerfile)
