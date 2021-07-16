@@ -10,7 +10,7 @@
 
 [**Docker**](https://www.docker.com/) image with [**Uvicorn**](https://www.uvicorn.org/) managed by [**Gunicorn**](https://gunicorn.org/) for high-performance web applications in **[Python](https://www.python.org/) 3.9 and above** with performance auto-tuning. Optionally in a slim version or based on Alpine Linux.
 
-**GitHub repo**: [https://github.com/antonapetrov/uvicorn-gunicorn-docker](https://github.com/antonapetrov/uvicorn-gunicorn-docker)
+**GitHub repo**: [https://github.com/anton-petrov/uvicorn-gunicorn-docker](https://github.com/anton-petrov/uvicorn-gunicorn-docker)
 
 **Docker Hub image**: [https://hub.docker.com/r/antonapetrov/uvicorn-gunicorn/](https://hub.docker.com/r/antonapetrov/uvicorn-gunicorn/)
 
@@ -48,25 +48,20 @@ There is also a slim version and another one based on Alpine Linux. If you want 
 
 This image was created to be the base image for:
 
-* [**antonapetrov/uvicorn-gunicorn-starlette**](https://github.com/antonapetrov/uvicorn-gunicorn-starlette-docker)
-* [**antonapetrov/uvicorn-gunicorn-fastapi**](https://github.com/antonapetrov/uvicorn-gunicorn-fastapi-docker)
+* [**antonapetrov/uvicorn-gunicorn-fastapi**](https://github.com/anton-petrov/uvicorn-gunicorn-fastapi-docker)
 
 But could be used as the base image to run any Python web application that uses the ASGI specification.
 
-If you are creating a new [**Starlette**](https://www.starlette.io/) web application you should use [**antonapetrov/uvicorn-gunicorn-starlette**](https://github.com/antonapetrov/uvicorn-gunicorn-starlette-docker) instead.
-
-If you are creating a new [**FastAPI**](https://fastapi.antonapetrov.com/) web application you should use [**antonapetrov/uvicorn-gunicorn-fastapi**](https://github.com/antonapetrov/uvicorn-gunicorn-fastapi-docker) instead.
+If you are creating a new [**FastAPI**](https://fastapi.tiangolo.com/) web application you should use [**antonapetrov/uvicorn-gunicorn-fastapi**](https://github.com/anton-petrov/uvicorn-gunicorn-fastapi-docker) instead.
 
 **Note**: FastAPI is based on Starlette and adds several features on top of it. Useful for APIs and other cases: data validation, data conversion, documentation with OpenAPI, dependency injection, security/authentication and others.
-
-**Note**: Unless you are doing something more technically advanced, you probably should be using [**Starlette**](https://www.starlette.io/) with [**antonapetrov/uvicorn-gunicorn-starlette**](https://github.com/antonapetrov/uvicorn-gunicorn-starlette-docker) or [**FastAPI**](https://fastapi.antonapetrov.com/) with [**antonapetrov/uvicorn-gunicorn-fastapi**](https://github.com/antonapetrov/uvicorn-gunicorn-fastapi-docker).
 
 ## How to use
 
 * You don't need to clone the GitHub repo. You can use this image as a base image for other images, using this in your `Dockerfile`:
 
 ```Dockerfile
-FROM antonapetrov/uvicorn-gunicorn:python3.7
+FROM antonapetrov/uvicorn-gunicorn:python3.9
 
 COPY ./app /app
 ```
@@ -110,7 +105,7 @@ Let's say you have a project managed with [Poetry](https://python-poetry.org/), 
 Then you could have a `Dockerfile` like:
 
 ```Dockerfile
-FROM antonapetrov/uvicorn-gunicorn:python3.7
+FROM antonapetrov/uvicorn-gunicorn:python3.9
 
 # Install Poetry
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | POETRY_HOME=/opt/poetry python && \
