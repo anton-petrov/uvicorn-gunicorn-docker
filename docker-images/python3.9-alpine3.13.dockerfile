@@ -1,4 +1,4 @@
-FROM python:3.9-alpine3.13
+FROM python:3.10.0rc1-alpine3.13
 
 LABEL maintainer="Anton Petrov <anton.a.petrov@gmail.com>"
 
