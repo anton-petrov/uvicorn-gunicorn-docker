@@ -110,7 +110,7 @@ Let's say you have a project managed with [Poetry](https://python-poetry.org/), 
 Then you could have a `Dockerfile` like:
 
 ```Dockerfile
-FROM antonapetrov/uvicorn-gunicorn:python3.7
+FROM antonapetrov/uvicorn-gunicorn:python3.9
 
 # Install Poetry
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | POETRY_HOME=/opt/poetry python && \

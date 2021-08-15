@@ -1,7 +1,7 @@
 FROM python:3.9-slim
 
 LABEL maintainer="Anton Petrov <anton.a.petrov@gmail.com>"
-
+RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN pip install --no-cache-dir "uvicorn[standard]" gunicorn
 
 COPY ./start.sh /start.sh

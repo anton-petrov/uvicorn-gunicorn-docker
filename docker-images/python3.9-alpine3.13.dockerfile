@@ -5,7 +5,7 @@ LABEL maintainer="Anton Petrov <anton.a.petrov@gmail.com>"
 RUN apk add --no-cache --virtual .build-deps gcc libc-dev make \
     && pip install --no-cache-dir "uvicorn[standard]" gunicorn \
     && apk del .build-deps gcc libc-dev make
-
+RUN /usr/local/bin/python -m pip install --upgrade pip
 COPY ./start.sh /start.sh
 RUN chmod +x /start.sh
 
