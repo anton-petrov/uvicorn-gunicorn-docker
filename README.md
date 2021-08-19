@@ -3,6 +3,8 @@
 * [`python3.9` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9.dockerfile)
 * [`python3.9-slim` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-slim.dockerfile)
 * [`python3.9-alpine3.13` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-alpine3.13.dockerfile)
+* [`mambaforge` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/mambaforge.dockerfile)
+* [`miniforge3` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/miniforge3.dockerfile)
 
 **Note**: Note: There are [tags for each build date](https://hub.docker.com/r/antonapetrov/uvicorn-gunicorn/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `antonapetrov/uvicorn-gunicorn:python3.9`.
 
@@ -561,6 +563,11 @@ All the image tags, configurations, environment variables and application option
 ## Release Notes
 
 ### Latest Changes
+
+### 0.8.0
+
+* Add mambaforge (condaforge/mambaforge)
+* Add miniforge3 (condaforge/miniforge3)
 
 ### 0.7.0
 
