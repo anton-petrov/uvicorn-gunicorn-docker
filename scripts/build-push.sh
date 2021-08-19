@@ -3,7 +3,7 @@
 set -e
 
 use_tag="antonapetrov/uvicorn-gunicorn:$NAME"
-use_dated_tag="${use_tag}-$(date -I)"
+use_dated_tag="${use_tag}-$(date +%F)"
 
 bash scripts/build.sh
 

@@ -3,6 +3,11 @@ FROM condaforge/miniforge3
 LABEL maintainer="Anton Petrov <anton.a.petrov@gmail.com>"
 RUN python -m pip install --upgrade pip
 RUN conda update --all --yes
+
+RUN apt-get update && apt-get upgrade -y && \
+apt-get install -y make build-essential wget curl  \
+&& apt clean
+
 RUN pip install --no-cache-dir "uvicorn[standard]" gunicorn
 
 COPY ./start.sh /start.sh
