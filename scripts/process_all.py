@@ -3,10 +3,11 @@ import subprocess
 import sys
 
 environments = [
-    {"NAME": "latest", "PYTHON_VERSION": "3.9"},
     {"NAME": "python3.9", "PYTHON_VERSION": "3.9"},
     {"NAME": "python3.9-slim", "PYTHON_VERSION": "3.9"},
     {"NAME": "python3.9-alpine3.13", "PYTHON_VERSION": "3.9"},
+    {"NAME": "mambaforge", "PYTHON_VERSION": "Mambaforge 3.9"},
+    {"NAME": "miniforge3", "PYTHON_VERSION": "Miniforge3 3.9"},
 ]
 
 start_with = os.environ.get("START_WITH")
