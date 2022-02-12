@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.10.0b3
 
 LABEL maintainer="Anton Petrov <anton.a.petrov@gmail.com>"
 RUN /usr/local/bin/python -m pip install --upgrade pip
