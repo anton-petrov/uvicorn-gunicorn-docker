@@ -1,8 +1,9 @@
-FROM condaforge/miniforge3
+FROM condaforge/mambaforge
 
 LABEL maintainer="Anton Petrov <anton.a.petrov@gmail.com>"
 RUN python -m pip install --upgrade pip
-RUN conda update --all --yes
+RUN mamba install python=3.10 --yes
+RUN mamba update --all --yes
 
 RUN apt-get update && apt-get upgrade -y && \
 apt-get install -y make build-essential wget curl  \

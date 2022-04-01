@@ -3,6 +3,6 @@
 set -e
 set -x
 
-bash scripts/build-push-all.sh
+./scripts/build-push-all.sh
 
-bash scripts/trigger-children.sh
+./scripts/trigger-children.sh

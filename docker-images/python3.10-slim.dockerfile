@@ -1,8 +1,7 @@
-FROM condaforge/mambaforge
+FROM python:3.10-slim
 
 LABEL maintainer="Anton Petrov <anton.a.petrov@gmail.com>"
-RUN python -m pip install --upgrade pip
-RUN mamba update --all --yes
+RUN /usr/local/bin/python -m pip install --upgrade pip
 
 RUN apt-get update && apt-get upgrade -y && \
 apt-get install -y make build-essential wget curl  \
