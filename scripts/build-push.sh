@@ -8,7 +8,7 @@ use_dated_tag="${use_tag}-$(date +%F)"
 DOCKERFILE="$NAME"
 
 if [ "$NAME" == "latest" ] ; then
-    DOCKERFILE="python3.9"
+    DOCKERFILE="python3.10"
 fi
 
 ./scripts/docker-login.sh

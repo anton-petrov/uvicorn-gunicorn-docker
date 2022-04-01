@@ -2,14 +2,20 @@
 
 * [`python3.9` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9.dockerfile)
 * [`python3.9-slim` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-slim.dockerfile)
-* [`python3.9-alpine3.13` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-alpine3.13.dockerfile)
-* [`mambaforge` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/mambaforge.dockerfile)
-* [`miniforge3` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/miniforge3.dockerfile)
+* [`python3.9-alpine` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.9-alpine.dockerfile)
+* [`mambaforge3.9` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/mambaforge3.9.dockerfile)
+* [`miniforge3.9` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/miniforge3.9.dockerfile)
+* [`python3.10` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.10.dockerfile)
+* [`python3.10-slim` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.10-slim.dockerfile)
+* [`python3.10-alpine` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/python3.10-alpine.dockerfile)
+* [`mambaforge3.10` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/mambaforge3.10.dockerfile)
+* [`miniforge3.10` _(Dockerfile)_](https://github.com/antonapetrov/uvicorn-gunicorn-docker/blob/master/docker-images/miniforge3.10.dockerfile)
 
 ## Supported platforms
 
 * linux/amd64
 * linux/arm64
+* macos/arm64
 
 **Note**: Note: There are [tags for each build date](https://hub.docker.com/r/antonapetrov/uvicorn-gunicorn/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `antonapetrov/uvicorn-gunicorn:python3.9`.
 
@@ -28,6 +34,60 @@ Python web applications running with **Uvicorn** (using the "ASGI" specification
 The achievable performance is on par with (and in many cases superior to) **Go** and **Node.js** frameworks.
 
 This image has an "auto-tuning" mechanism included, so that you can just add your code and get that same **high performance** automatically. And without making sacrifices.
+
+## 🚨 WARNING: You Probably Don't Need this Docker Image
+
+You are probably using **Kubernetes** or similar tools. In that case, you probably **don't need this image** (or any other **similar base image**). You are probably better off **building a Docker image from scratch** as explained in the docs for [FastAPI in Containers - Docker: Build a Docker Image for FastAPI](https://fastapi.tiangolo.com/deployment/docker/#replication-number-of-processes), that same process and ideas could be applied to other ASGI frameworks.
+
+---
+
+If you have a cluster of machines with **Kubernetes**, Docker Swarm Mode, Nomad, or other similar complex system to manage distributed containers on multiple machines, then you will probably want to **handle replication** at the **cluster level** instead of using a **process manager** (like Gunicorn with Uvicorn workers) in each container, which is what this Docker image does.
+
+In those cases (e.g. using Kubernetes) you would probably want to build a **Docker image from scratch**, installing your dependencies, and running **a single Uvicorn process** instead of this image.
+
+For example, your `Dockerfile` could look like:
+
+```Dockerfile
+FROM python:3.9
+
+WORKDIR /code
+
+COPY ./requirements.txt /code/requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+COPY ./app /code/app
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+```
+
+You can read more about this in the [FastAPI documentation about: FastAPI in Containers - Docker](https://fastapi.tiangolo.com/deployment/docker/#replication-number-of-processes) as the same ideas would apply to other ASGI frameworks.
+
+## When to Use this Docker Image
+
+### A Simple App
+
+You could want a process manager like Gunicorn running Uvicorn workers in the container if your application is **simple enough** that you don't need (at least not yet) to fine-tune the number of processes too much, and you can just use an automated default, and you are running it on a **single server**, not a cluster.
+
+### Docker Compose
+
+You could be deploying to a **single server** (not a cluster) with **Docker Compose**, so you wouldn't have an easy way to manage replication of containers (with Docker Compose) while preserving the shared network and **load balancing**.
+
+Then you could want to have **a single container** with a Gunicorn **process manager** starting **several Uvicorn worker processes** inside, as this Docker image does.
+
+### Prometheus and Other Reasons
+
+You could also have **other reasons** that would make it easier to have a **single container** with **multiple processes** instead of having **multiple containers** with **a single process** in each of them.
+
+For example (depending on your setup) you could have some tool like a Prometheus exporter in the same container that should have access to **each of the requests** that come.
+
+In this case, if you had **multiple containers**, by default, when Prometheus came to **read the metrics**, it would get the ones for **a single container each time** (for the container that handled that particular request), instead of getting the **accumulated metrics** for all the replicated containers.
+
+Then, in that case, it could be simpler to have **one container** with **multiple processes**, and a local tool (e.g. a Prometheus exporter) on the same container collecting Prometheus metrics for all the internal processes and exposing those metrics on that single container.
+
+---
+
+Read more about it all in the [FastAPI documentation about: FastAPI in Containers - Docker](https://fastapi.tiangolo.com/deployment/docker/), as the same ideas would apply to any other ASGI framework.
 
 ## Technical Details
 
@@ -568,6 +628,11 @@ All the image tags, configurations, environment variables and application option
 ## Release Notes
 
 ### Latest Changes
+
+### 0.9.0
+
+* Add python 3.10
+* Update Alpine Linux to 3.15
 
 ### 0.8.0
 
