@@ -13,5 +13,5 @@ fi
 
 ./scripts/docker-login.sh
 
-docker buildx create --use --platform linux/arm64/v8,linux/amd64
+# docker buildx create --use --platform linux/arm64/v8,linux/amd64
 docker buildx build --platform linux/amd64,linux/arm64 -t "$use_tag" --file "./docker-images/${DOCKERFILE}.dockerfile" --push "./docker-images/"

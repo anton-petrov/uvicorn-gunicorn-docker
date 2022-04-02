@@ -15,9 +15,15 @@
 
 * linux/amd64
 * linux/arm64
-* macos/arm64
 
 **Note**: Note: There are [tags for each build date](https://hub.docker.com/r/antonapetrov/uvicorn-gunicorn/tags). If you need to "pin" the Docker image version you use, you can select one of those tags. E.g. `antonapetrov/uvicorn-gunicorn:python3.9`.
+
+
+```
+cd PROJECT_DIR
+docker buildx create --use --platform linux/arm64/v8,linux/amd64
+./scripts/build-push-all.sh
+```
 
 # uvicorn-gunicorn
 
