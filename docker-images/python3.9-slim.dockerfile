@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.13.0b2-slim
 
 LABEL maintainer="Anton Petrov <anton.a.petrov@gmail.com>"
 RUN /usr/local/bin/python -m pip install --upgrade pip
